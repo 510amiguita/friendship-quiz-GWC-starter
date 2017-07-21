@@ -16,10 +16,23 @@ var answerList = []; //initialize answerList to be empty
 
 //adds user-submitted answer to answerList
 function submitAnswer() {
-
+ var answer = document.getElementById("answerInput").value;
+ answerList.push(answer);
 }
 
-//checks if user-submitted guess is in answerList
-function checkGuess() {
 
+//checks if user-submitted guess is in answerList
+function checkGuess() {                                     //Function that determines whether the guesses are correct or not
+  var found = false                                         //Defining false variable
+  var guess = document.getElementById('guessInput').value;  //Directs the guessInput into the variable guess
+
+  for(var i=0; i < answerList.length; i++){                 //Checks through list
+    if(guess == answerList[i]){                             //If input from second user matches with first user then they are correct and a great friend
+      alert("YOU ARE A GREAT FRIEND!")
+      found = true;
+    }
+  }
+  if(found == false){                                       //If input from second user does not match with first user then they are incorrect and a terrible friend
+    alert("YOU ARE A TERRIBLE FRIEND!");                  
+  }
 }
